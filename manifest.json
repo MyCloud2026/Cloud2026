@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Cloud Booking Processor",
+  "version": "1.2",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv9t3pVh1ZpFqH+u6lV2Qy7qGqJ3U9KhZtLq3+QHZ2mX8PxoZQhHFiYlZ5aS7f/7L9r6Qh1Bkg3J2fYFzXxP6tRrHqG7aV3aBz+q4J6L9H/YbV2I5gE3CzNQOYV1I4N4a5qC3x/UzCIVz2M3Fg07e9nX6XvF+6yF4X1rXxZhM7EJpNzA8xD8w8Jf1dL0h6HxyM7S6g+vTr1y9M5YxH+P/0q9vK7yBfFZLxF82NQ+XHkU1e0bP8B5TjZHVl0W8R7Fb9uVvJZkV+Yq9P5r/JzYqGvH8F4Gf+2W5BzFZ0+0fzDq0FqMZ2P9QIDAQAB",
+  "permissions": [
+    "cookies",
+    "webRequest",
+    "tabs",
+    "windows"
+  ],
+  "host_permissions": [
+    "*://*.irctc.co.in/*",
+    "http://localhost:5005/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.irctc.co.in/*"],
+      "js": ["panel.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
